@@ -5,8 +5,7 @@ import {Employee} from '../model/employee';
 import {environment} from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
-})
+  providedIn: 'root'})
 export class EmployeeService {
   private apiServerUrl = environment.apiBaseUrl;
 
@@ -21,7 +20,7 @@ export class EmployeeService {
   public updateEmployees(employee: Employee): Observable<Employee>{
     return this.http.put<Employee>(`${this.apiServerUrl}/employee/update`, employee );
   }
-  public deleteEmployees(employee: Employee): Observable<void>{
+  public deleteEmployees(employee: number): Observable<void>{
     return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employee}` );
   }
 }
